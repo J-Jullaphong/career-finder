@@ -1,0 +1,746 @@
+[
+{
+  "model": "careers.jobseeker",
+  "pk": "JS000001",
+  "fields": {
+    "user_ptr": 1,
+    "work_experience": "3.5",
+    "phone_number": "1234567890"
+  }
+},
+{
+  "model": "careers.jobseeker",
+  "pk": "JS000002",
+  "fields": {
+    "user_ptr": 2,
+    "work_experience": "2.0",
+    "phone_number": "9876543210"
+  }
+},
+{
+  "model": "careers.jobseeker",
+  "pk": "JS000003",
+  "fields": {
+    "user_ptr": 8,
+    "work_experience": "2.5",
+    "phone_number": "1231234112"
+  }
+},
+{
+  "model": "careers.jobseeker",
+  "pk": "JS000004",
+  "fields": {
+    "user_ptr": 12,
+    "work_experience": "1.0",
+    "phone_number": "0845398674"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000001",
+  "fields": {
+    "skill": "Java Development"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000002",
+  "fields": {
+    "skill": "Data Analysis"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000003",
+  "fields": {
+    "skill": "Graphic Design"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000004",
+  "fields": {
+    "skill": "Project Management"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000005",
+  "fields": {
+    "skill": "Machine Learning"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000006",
+  "fields": {
+    "skill": "Database Administration"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000007",
+  "fields": {
+    "skill": "Network Security"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000008",
+  "fields": {
+    "skill": "Web Development"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000009",
+  "fields": {
+    "skill": "UI/UX Design"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000010",
+  "fields": {
+    "skill": "Mobile App Development"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000011",
+  "fields": {
+    "skill": "Business Analysis"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000012",
+  "fields": {
+    "skill": "Cloud Computing"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000013",
+  "fields": {
+    "skill": "Software Testing"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000014",
+  "fields": {
+    "skill": "Data Warehousing"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000015",
+  "fields": {
+    "skill": "System Architecture"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000016",
+  "fields": {
+    "skill": "Quality Assurance"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000017",
+  "fields": {
+    "skill": "iOS App Development"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000018",
+  "fields": {
+    "skill": "Android App Development"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000019",
+  "fields": {
+    "skill": "DevOps"
+  }
+},
+{
+  "model": "careers.expertise",
+  "pk": "EX000020",
+  "fields": {
+    "skill": "IT Security"
+  }
+},
+{
+  "model": "careers.competence",
+  "pk": 1,
+  "fields": {
+    "job_seeker": "JS000001",
+    "expertise": "EX000001"
+  }
+},
+{
+  "model": "careers.competence",
+  "pk": 2,
+  "fields": {
+    "job_seeker": "JS000001",
+    "expertise": "EX000002"
+  }
+},
+{
+  "model": "careers.competence",
+  "pk": 3,
+  "fields": {
+    "job_seeker": "JS000002",
+    "expertise": "EX000003"
+  }
+},
+{
+  "model": "careers.competence",
+  "pk": 20,
+  "fields": {
+    "job_seeker": "JS000004",
+    "expertise": "EX000001"
+  }
+},
+{
+  "model": "careers.competence",
+  "pk": 21,
+  "fields": {
+    "job_seeker": "JS000004",
+    "expertise": "EX000002"
+  }
+},
+{
+  "model": "careers.competence",
+  "pk": 22,
+  "fields": {
+    "job_seeker": "JS000004",
+    "expertise": "EX000003"
+  }
+},
+{
+  "model": "careers.competence",
+  "pk": 23,
+  "fields": {
+    "job_seeker": "JS000003",
+    "expertise": "EX000001"
+  }
+},
+{
+  "model": "careers.competence",
+  "pk": 24,
+  "fields": {
+    "job_seeker": "JS000003",
+    "expertise": "EX000003"
+  }
+},
+{
+  "model": "careers.recruiter",
+  "pk": "RE000001",
+  "fields": {
+    "user_ptr": 5,
+    "company_id": "CO000001"
+  }
+},
+{
+  "model": "careers.recruiter",
+  "pk": "RE000002",
+  "fields": {
+    "user_ptr": 6,
+    "company_id": "CO000002"
+  }
+},
+{
+  "model": "careers.recruiter",
+  "pk": "RE000003",
+  "fields": {
+    "user_ptr": 9,
+    "company_id": "CO000003"
+  }
+},
+{
+  "model": "careers.company",
+  "pk": "CO000001",
+  "fields": {
+    "user_ptr": 3,
+    "name": "Tech Co",
+    "phone_number": "5551234",
+    "street": "123 Main St",
+    "district": "Downtown",
+    "province": "Techland",
+    "postal_code": "12345"
+  }
+},
+{
+  "model": "careers.company",
+  "pk": "CO000002",
+  "fields": {
+    "user_ptr": 4,
+    "name": "Data Corp",
+    "phone_number": "5555678",
+    "street": "456 Tech Ave",
+    "district": "Tech District",
+    "province": "Dataland",
+    "postal_code": "54321"
+  }
+},
+{
+  "model": "careers.company",
+  "pk": "CO000003",
+  "fields": {
+    "user_ptr": 7,
+    "name": "Demo Company",
+    "phone_number": "1231234124",
+    "street": "Demo Street",
+    "district": "Demo District",
+    "province": "Demo Province",
+    "postal_code": "12312"
+  }
+},
+{
+  "model": "careers.jobopening",
+  "pk": "JO000001",
+  "fields": {
+    "job_title": "Python Developer",
+    "recruiter": "RE000001",
+    "job_function": "JF000001",
+    "job_type": "JT000001",
+    "required_work_experience": "2.0",
+    "min_salary": 60000,
+    "max_salary": 80000
+  }
+},
+{
+  "model": "careers.jobopening",
+  "pk": "JO000002",
+  "fields": {
+    "job_title": "Data Scientist",
+    "recruiter": "RE000002",
+    "job_function": "JF000002",
+    "job_type": "JT000002",
+    "required_work_experience": "3.0",
+    "min_salary": 70000,
+    "max_salary": 90000
+  }
+},
+{
+  "model": "careers.jobopening",
+  "pk": "JO000003",
+  "fields": {
+    "job_title": "Test Job Opening",
+    "recruiter": "RE000003",
+    "job_function": "JF000009",
+    "job_type": "JT000001",
+    "required_work_experience": "1.5",
+    "min_salary": 25000,
+    "max_salary": 40000
+  }
+},
+{
+  "model": "careers.jobopening",
+  "pk": "JO000004",
+  "fields": {
+    "job_title": "Test Job Opening 2",
+    "recruiter": "RE000003",
+    "job_function": "JF000002",
+    "job_type": "JT000001",
+    "required_work_experience": "4.0",
+    "min_salary": 40000,
+    "max_salary": 60000
+  }
+},
+{
+  "model": "careers.requirement",
+  "pk": 1,
+  "fields": {
+    "job_opening": "JO000001",
+    "expertise": "EX000001"
+  }
+},
+{
+  "model": "careers.requirement",
+  "pk": 2,
+  "fields": {
+    "job_opening": "JO000002",
+    "expertise": "EX000003"
+  }
+},
+{
+  "model": "careers.requirement",
+  "pk": 47,
+  "fields": {
+    "job_opening": "JO000003",
+    "expertise": "EX000002"
+  }
+},
+{
+  "model": "careers.requirement",
+  "pk": 48,
+  "fields": {
+    "job_opening": "JO000003",
+    "expertise": "EX000006"
+  }
+},
+{
+  "model": "careers.requirement",
+  "pk": 49,
+  "fields": {
+    "job_opening": "JO000004",
+    "expertise": "EX000002"
+  }
+},
+{
+  "model": "careers.requirement",
+  "pk": 50,
+  "fields": {
+    "job_opening": "JO000004",
+    "expertise": "EX000005"
+  }
+},
+{
+  "model": "careers.requirement",
+  "pk": 51,
+  "fields": {
+    "job_opening": "JO000004",
+    "expertise": "EX000006"
+  }
+},
+{
+  "model": "careers.requirement",
+  "pk": 52,
+  "fields": {
+    "job_opening": "JO000004",
+    "expertise": "EX000008"
+  }
+},
+{
+  "model": "careers.jobapplication",
+  "pk": 1,
+  "fields": {
+    "job_seeker": "JS000001",
+    "job_opening": "JO000001"
+  }
+},
+{
+  "model": "careers.jobapplication",
+  "pk": 2,
+  "fields": {
+    "job_seeker": "JS000002",
+    "job_opening": "JO000002"
+  }
+},
+{
+  "model": "careers.jobapplication",
+  "pk": 12,
+  "fields": {
+    "job_seeker": "JS000003",
+    "job_opening": "JO000001"
+  }
+},
+{
+  "model": "careers.jobapplication",
+  "pk": 13,
+  "fields": {
+    "job_seeker": "JS000003",
+    "job_opening": "JO000003"
+  }
+},
+{
+  "model": "careers.jobapplication",
+  "pk": 14,
+  "fields": {
+    "job_seeker": "JS000003",
+    "job_opening": "JO000004"
+  }
+},
+{
+  "model": "careers.jobfunction",
+  "pk": "JF000001",
+  "fields": {
+    "function": "Software Development"
+  }
+},
+{
+  "model": "careers.jobfunction",
+  "pk": "JF000002",
+  "fields": {
+    "function": "Data Science"
+  }
+},
+{
+  "model": "careers.jobfunction",
+  "pk": "JF000003",
+  "fields": {
+    "function": "Project Management"
+  }
+},
+{
+  "model": "careers.jobfunction",
+  "pk": "JF000004",
+  "fields": {
+    "function": "Graphic Design"
+  }
+},
+{
+  "model": "careers.jobfunction",
+  "pk": "JF000005",
+  "fields": {
+    "function": "Network Security"
+  }
+},
+{
+  "model": "careers.jobfunction",
+  "pk": "JF000006",
+  "fields": {
+    "function": "Web Development"
+  }
+},
+{
+  "model": "careers.jobfunction",
+  "pk": "JF000007",
+  "fields": {
+    "function": "UI/UX Design"
+  }
+},
+{
+  "model": "careers.jobfunction",
+  "pk": "JF000008",
+  "fields": {
+    "function": "Machine Learning"
+  }
+},
+{
+  "model": "careers.jobfunction",
+  "pk": "JF000009",
+  "fields": {
+    "function": "Database Administration"
+  }
+},
+{
+  "model": "careers.jobfunction",
+  "pk": "JF000010",
+  "fields": {
+    "function": "Mobile App Development"
+  }
+},
+{
+  "model": "careers.jobtype",
+  "pk": "JT000001",
+  "fields": {
+    "type": "Full-time"
+  }
+},
+{
+  "model": "careers.jobtype",
+  "pk": "JT000002",
+  "fields": {
+    "type": "Part-time"
+  }
+},
+{
+  "model": "careers.jobtype",
+  "pk": "JT000003",
+  "fields": {
+    "type": "Contract"
+  }
+},
+{
+  "model": "careers.jobtype",
+  "pk": "JT000004",
+  "fields": {
+    "type": "Temporary"
+  }
+},
+{
+  "model": "careers.jobtype",
+  "pk": "JT000006",
+  "fields": {
+    "type": "Internship"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jobseeker1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-19T10:26:53.545Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jobseeker2",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-19T10:26:53.548Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "company1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-19T10:26:53.552Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "company2",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-19T10:26:53.554Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "recruiter1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-19T10:26:53.556Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "recruiter2",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-19T10:26:53.558Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$vwlnKNLyAaR9WpYIxSXK5x$+o0e9cyzb8Qcza7BLcW0s5WcYB8FFV0TzM9kd2GnP90=",
+    "last_login": "2023-11-20T16:27:37.299Z",
+    "is_superuser": false,
+    "username": "demo_company",
+    "first_name": "Demo",
+    "last_name": "Company",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-19T12:56:57.310Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$112SIXNlmhmHFRDKwO8Jt4$x2KY1zUeuxx9N4CUrgZNWU3X4YV/FvynqBTBY99GURc=",
+    "last_login": "2023-11-20T13:37:02.952Z",
+    "is_superuser": false,
+    "username": "demo_seeker",
+    "first_name": "Demo",
+    "last_name": "Seeker",
+    "email": "demo_seeker@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-19T14:17:01.486Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$zoaiwyDoFiIks1dh4nNzI1$pcO10hAEQpHZ43ZSLiIlu4BMm2wU37Gg3J6IXe2Pdzk=",
+    "last_login": "2023-11-20T16:23:22.847Z",
+    "is_superuser": false,
+    "username": "demo_recruiter",
+    "first_name": "Demo",
+    "last_name": "Recruiter",
+    "email": "demo_recruiter@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-19T14:38:52.858Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$aRyOpfbJdRbHvjkzip2Kg0$gFda14dx0dBz7jfQQrjfnRxKUfIEMIcYfDN8OQ9TiaQ=",
+    "last_login": "2023-11-20T08:50:26.719Z",
+    "is_superuser": false,
+    "username": "demo_user3",
+    "first_name": "Demo",
+    "last_name": "Job",
+    "email": "admin@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-20T08:50:16.899Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
