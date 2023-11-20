@@ -72,6 +72,7 @@ class JobOpeningForm(forms.ModelForm):
         self.fields['requirements'] = forms.ModelMultipleChoiceField(
             queryset=Expertise.objects.all(),
             widget=forms.CheckboxSelectMultiple,
+            required=False,
         )
 
     def save(self, commit=True):
