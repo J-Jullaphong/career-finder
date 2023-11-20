@@ -1,0 +1,44 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Company Recruiter Management{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Company Recruiter Management</h2>
+        <hr>
+
+        <form method="post"
+              action="{% url 'careers:recruiter_register' company_id=request.user.company.company_id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Add Recruiter
+            </button>
+        </form>
+
+        <hr>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Recruiter Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for recruiter in recruiters %}
+                <tr>
+                    <td>{{ recruiter.user_ptr.get_full_name }}</td>
+                    <td>{{ recruiter.user_ptr.email }}</td>
+                    <td>
+                        <a href="{% url 'careers:update_recruiter' recruiter_id=recruiter.recruiter_id company_id=user.company.company_id %}"
+                           class="btn btn-warning btn-sm">Update</a>
+                        <a href="{% url 'careers:delete_recruiter' recruiter_id=recruiter.recruiter_id company_id=user.company.company_id %}"
+                           class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

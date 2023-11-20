@@ -1,0 +1,17 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Update Recruiter{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Update Recruiter</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Update Recruiter
+            </button>
+            <a href="{% url 'careers:recruiter_management' company_id=user.company.company_id %}"
+               class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

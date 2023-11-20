@@ -1,0 +1,48 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Manage Job Openings{% endblock %}
+
+{% block content %}
+  <h2>Manage Job Openings</h2>
+
+  {% if job_openings %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Job Title</th>
+          <th scope="col">Job Function</th>
+          <th scope="col">Required Experience</th>
+          <th scope="col">Requirements</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for job_opening in job_openings %}
+          <tr>
+            <td>{{ job_opening.job_title }}</td>
+            <td>{{ job_opening.job_function.function }}</td>
+            <td>{{ job_opening.required_work_experience }} years</td>
+            <td>
+              <ul>
+                {% for requirement in job_opening.requirement_set.all %}
+                  <li>{{ requirement.expertise.skill }}</li>
+                {% endfor %}
+              </ul>
+            </td>
+            <td>
+              <a href="{% url 'careers:update_job_description' company_id=user.company.company_id job_opening_id=job_opening.job_opening_id %}" class="btn btn-primary">Update</a>
+              <form method="post" action="{% url 'careers:delete_job_opening' company_id=user.company.company_id job_opening_id=job_opening.job_opening_id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this job opening?')">Delete</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a class="btn btn-primary" href="{% url 'careers:post_job_opening' company_id=user.company.company_id %}" role="button">Post New Job Opening</a>
+  {% else %}
+    <p>No job openings found.</p>
+    <a class="btn btn-primary" href="{% url 'careers:post_job_opening' company_id=user.company.company_id %}" role="button">Post New Job Opening</a>
+  {% endif %}
+{% endblock %}

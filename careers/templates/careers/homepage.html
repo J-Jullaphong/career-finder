@@ -1,0 +1,69 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Career Finder!!</h1>
+        <p class="lead">Explore exciting career opportunities and find your
+            dream job.</p>
+        <hr class="my-4">
+        <p>Join us today and take the next step in your career journey.</p>
+
+        {% if user.is_authenticated %}
+            {% if user.jobseeker %}
+                <a class="btn btn-primary btn-lg"
+                   href="{% url 'careers:job_search' %}"
+                   role="button">Job Search
+                </a>
+                <a class="btn btn-info btn-lg"
+                   href="{% url 'careers:my_applications' %}"
+                   role="button">View My Job Applications
+                </a>
+                <a class="btn btn-info btn-lg"
+                   href="{% url 'careers:job_seeker_profile' job_seeker_id=user.jobseeker.job_seeker_id %}"
+                   role="button">Manage Profile
+                </a>
+            {% elif user.recruiter %}
+                <a class="btn btn-info btn-lg"
+                   href="{% url 'careers:recruiter_job_applications' %}"
+                   role="button">View Job Applications
+                </a>
+                <a class="btn btn-info btn-lg"
+                   href="{% url 'careers:view_job_seekers' %}"
+                   role="button">Find Job Seekers
+                </a>
+                <a class="btn btn-info btn-lg"
+                   href="{% url 'careers:recruiter_profile' recruiter_id=user.recruiter.recruiter_id %}"
+                   role="button">Manage Profile
+                </a>
+            {% elif user.company %}
+                <a class="btn btn-primary btn-lg"
+                   href="{% url 'careers:post_job_opening' company_id=user.company.company_id %}"
+                   role="button">Post New Job Opening
+                </a>
+                <a class="btn btn-primary btn-lg"
+                   href="{% url 'careers:manage_job_openings' company_id=user.company.company_id %}"
+                   role="button">Manage Job Openings
+                </a>
+                <a class="btn btn-info btn-lg"
+                   href="{% url 'careers:recruiter_management' company_id=user.company.company_id %}"
+                   role="button">Manage Recruiter
+                </a>
+                <a class="btn btn-info btn-lg"
+                   href="{% url 'careers:company_profile' company_id=user.company.company_id %}"
+                   role="button">Manage Profile
+                </a>
+            {% endif %}
+        {% else %}
+            <a class="btn btn-primary btn-lg"
+               href="{% url 'careers:job_seeker_register' %}" role="button">Register
+                as
+                Job Seeker</a>
+            <a class="btn btn-success btn-lg"
+               href="{% url 'careers:company_register' %}" role="button">Register
+                as
+                Company</a>
+        {% endif %}
+    </div>
+{% endblock %}

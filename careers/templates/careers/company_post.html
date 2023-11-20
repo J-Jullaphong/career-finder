@@ -1,0 +1,14 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Post Job Opening{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Post Job Opening</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Post Job Opening</button>
+    </form>
+  </div>
+{% endblock %}

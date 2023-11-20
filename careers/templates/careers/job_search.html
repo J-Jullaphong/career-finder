@@ -1,0 +1,136 @@
+{% extends 'careers/base.html' %}
+{% block title %}Job Search{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    {% if loop.index == 1 %}
+                        {{ message }}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <h2>Job Search</h2>
+        <form method="get" action="{% url 'careers:job_search' %}">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="query">Search by Title</label>
+                    <input type="text" class="form-control" id="query" name="q"
+                           value="{% if query %}{{ query }}{% endif %}">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="jobFunction">Job Function</label>
+                    <select class="form-control" id="jobFunction"
+                            name="job_function">
+                        <option value="">Select Job Function</option>
+                        {% for function in all_job_functions %}
+                            <option value="{{ function.function }}"
+                                    {% if function.function == job_function %}selected{% endif %}>
+                                {{ function.function }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" class="form-control" id="companyName"
+                           name="company_name" value="
+                            {% if company_name %}{{ company_name }}{% endif %}">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="requiredExperience">Required Experience</label>
+                    <input type="number" class="form-control"
+                           id="requiredExperience" name="required_experience"
+                           value="{{ required_experience }}">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="minSalary">Min Salary</label>
+                    <input type="number" class="form-control" id="minSalary"
+                           name="min_salary" value="{{ min_salary }}">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="maxSalary">Max Salary</label>
+                    <input type="number" class="form-control" id="maxSalary"
+                           name="max_salary" value="{{ max_salary }}">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="expertise">Expertise</label>
+                    <select class="form-control" id="expertise"
+                            name="expertise">
+                        <option value="">Select Expertise</option>
+                        {% for skill in all_expertise %}
+                            <option value="{{ skill.skill }}"
+                                    {% if skill.skill == expertise %}selected{% endif %}>
+                                {{ skill.skill }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        {% if job_openings %}
+            <h3 class="mt-4">Search Results</h3>
+            <ul class="list-group">
+                {% for job_opening in job_openings %}
+                    <li class="list-group-item">
+                        <h5>{{ job_opening.job_title }}</h5>
+                        <p>
+                            Company: {{ job_opening.recruiter.company_id.name }}</p>
+                        <p>
+                            Address: {{ job_opening.recruiter.company_id.street }},
+                            {{ job_opening.recruiter.company_id.district }},
+                            {{ job_opening.recruiter.company_id.province }},
+                            {{ job_opening.recruiter.company_id.postal_code }}</p>
+                        <p>
+                            Contact: {{ job_opening.recruiter.company_id.phone_number }}</p>
+                        <p>Job
+                            Function: {{ job_opening.job_function.function }}</p>
+                        <p>Required
+                            Experience: {{ job_opening.required_work_experience }}
+                            years</p>
+                        <p>Salary Range: ${{ job_opening.min_salary }} -
+                            ${{ job_opening.max_salary }}</p>
+                        <p>Expertise:
+                            {% with requirements=job_opening.requirement_set.all %}
+                                {% for requirement in requirements %}
+                                    {{ requirement.expertise.skill }}
+                                            {% if not forloop.last %},
+                                            {% endif %}
+                                {% endfor %}
+                            {% endwith %}
+                        </p>
+
+                        {% if user.is_authenticated and user.jobseeker %}
+                            {% with already_applied=false %}
+                                {% for application in applications %}
+                                    {% if application.job_opening == job_opening %}
+                                        {% with already_applied=true %}
+                                        {% endwith %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if already_applied %}
+                                    <button class="btn btn-primary btn-lg"
+                                            disabled>Applied
+                                    </button>
+                                {% else %}
+                                    <a class="btn btn-primary btn-lg"
+                                       href="{% url 'careers:apply' job_opening_id=job_opening.job_opening_id %}"
+                                       role="button">Apply</a>
+                                {% endif %}
+                            {% endwith %}
+                        {% endif %}
+
+                        {% if user.is_authenticated and user.company %}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="mt-4">No results found.</p>
+        {% endif %}
+    </div>
+{% endblock %}

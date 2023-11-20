@@ -1,0 +1,15 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Recruiter Registration{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Recruiter Registration</h2>
+        <form method="post"
+              action="{% url 'careers:recruiter_register' company_id=request.user.company.company_id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+{% endblock %}

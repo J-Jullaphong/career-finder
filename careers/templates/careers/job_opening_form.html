@@ -1,0 +1,36 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}
+    {% if job_opening %}
+        Update Job Opening
+    {% else %}
+        Add Job Opening
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h2>
+        {% if job_opening %}
+            Update Job Opening
+        {% else %}
+            Add Job Opening
+        {% endif %}
+    </h2>
+
+    <form method="post"
+          {% if job_opening %}action="{% url 'careers:update_job_opening' company_id=company_id job_opening_id=job_opening.job_opening_id %}"
+          {% else %}action="{% url 'careers:add_job_opening' company_id=company_id %}"{% endif %}>
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">
+            {% if job_opening %}
+                Update Job Opening
+            {% else %}
+                Add Job Opening
+            {% endif %}
+        </button>
+    </form>
+    <a href="{% url 'careers:manage_job_openings' company_id=company_id %}"
+       class="btn btn-secondary">Cancel</a>
+{% endblock %}

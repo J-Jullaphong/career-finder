@@ -1,0 +1,51 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Job Applications{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Job Applications</h2>
+    <form method="get" action="{% url 'careers:recruiter_job_applications' %}">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="applicant_name">Applicant Name:</label>
+          <input type="text" class="form-control" name="applicant_name" value="{% if applicant_name %}{{ applicant_name }}{% endif %}">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="job_opening">Job Opening:</label>
+          <select class="form-control" name="job_opening">
+            <option value="" {% if not selected_job_opening %}selected{% endif %}>All</option>
+            {% for job_opening in job_openings %}
+              <option value="{{ job_opening.job_opening_id }}" {% if selected_job_opening == job_opening.job_opening_id %}selected{% endif %}>{{ job_opening.job_title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+        <button class="btn btn-primary" type="submit">Apply Filter</button>
+    </form>
+
+    <div style="padding-top: 10px">
+      {% if applications %}
+        <ul class="list-group">
+          {% for application in applications %}
+            <li class="list-group-item">
+              <h5>{{ application.job_opening.job_title }}</h5>
+              <p>Applicant: {{ application.job_seeker.get_full_name }}</p>
+              <p>Phone: {{ application.job_seeker.phone_number }}</p>
+              <p>Email: {{ application.job_seeker.email }}</p>
+              <p>Work Experience: {{ application.job_seeker.work_experience }} year(s)</p>
+              <p>Expertise:
+                {% for competence in application.job_seeker.competence_set.all %}
+                  {{ competence.expertise.skill }}
+                  {% if not forloop.last %}, {% endif %}
+                {% endfor %}
+              </p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="mt-4">No one has applied to your openings yet.</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

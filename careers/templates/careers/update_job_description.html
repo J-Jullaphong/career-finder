@@ -1,0 +1,14 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Update Job Description{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Update Job Description</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Delete Recruiter{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Delete Recruiter</h2>
+        <p>Are you sure you want to
+            delete {{ recruiter.user_ptr.get_full_name }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="{% url 'careers:recruiter_management' company_id=user.company.company_id %}"
+               class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

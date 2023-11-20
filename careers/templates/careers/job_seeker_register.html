@@ -1,0 +1,12 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Register as Job Seeker{% endblock %}
+
+{% block content %}
+    <h2>Register as Job Seeker</h2>
+    <form method="post" action="{% url 'careers:job_seeker_register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+{% endblock %}

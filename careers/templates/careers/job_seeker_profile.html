@@ -1,0 +1,39 @@
+{% extends 'careers/base.html' %}
+
+{% block title %}Job Seeker Profile{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Job Seeker Profile</h2>
+
+        <p>Name: {{ job_seeker.first_name }} {{ job_seeker.last_name }}</p>
+        <p>Email: {{ job_seeker.email }}</p>
+        <p>Phone Number: {{ job_seeker.phone_number }}</p>
+        <p>Work Experience: {{ job_seeker.work_experience }} years</p>
+
+        <p>Existing Expertise:
+            {% for competence in job_seeker.competence_set.all %}
+                {{ competence.expertise.skill }}
+                {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+
+        <form method="post"
+              action="{% url 'careers:job_seeker_profile' job_seeker_id=job_seeker.job_seeker_id %}">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            {{ competence_formset.management_form }}
+            {% for form in competence_formset.forms %}
+                {{ form.id }}
+                {{ form.expertise }}
+                {{ form.DELETE }}
+                <br>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary">Update Profile
+            </button>
+        </form>
+    </div>
+{% endblock %}
