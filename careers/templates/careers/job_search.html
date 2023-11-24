@@ -36,8 +36,7 @@
                 <div class="form-group col-md-4">
                     <label for="companyName">Company Name</label>
                     <input type="text" class="form-control" id="companyName"
-                           name="company_name" value="
-                            {% if company_name %}{{ company_name }}{% endif %}">
+                           name="company_name" value="{% if company_name %}{{ company_name }}{% endif %}">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="requiredExperience">Required Experience</label>
@@ -98,8 +97,8 @@
                             {% with requirements=job_opening.requirement_set.all %}
                                 {% for requirement in requirements %}
                                     {{ requirement.expertise.skill }}
-                                            {% if not forloop.last %},
-                                            {% endif %}
+                                    {% if not forloop.last %},
+                                    {% endif %}
                                 {% endfor %}
                             {% endwith %}
                         </p>
